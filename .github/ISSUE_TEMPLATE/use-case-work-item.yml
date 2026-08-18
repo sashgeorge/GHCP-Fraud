@@ -1,0 +1,79 @@
+name: Use case work item
+description: Create an implementation-ready issue traced to an approved use case and acceptance criteria.
+title: "[UC-###] "
+labels: ["type: feature", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include protected health information, personally identifiable information, credentials, or case evidence."
+  - type: input
+    id: use-case
+    attributes:
+      label: Use case
+      description: Link the approved use case and provide its UC-### identifier.
+      placeholder: "UC-### - docs/use-cases/..."
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Intended outcome
+      description: State the independently deliverable user or system outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: List the AC-### identifiers this issue satisfies and their observable outcomes.
+      placeholder: "- AC-001: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and exclusions
+      description: Describe included work, explicit exclusions, and dependencies.
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Technical approach
+      description: Note affected bounded context, API/UI/data changes, migrations, telemetry, and rollback considerations.
+    validations:
+      required: true
+  - type: dropdown
+    id: sensitive-data
+    attributes:
+      label: Sensitive-data impact
+      options:
+        - None identified
+        - Existing approved data use
+        - New or changed data use requiring review
+    validations:
+      required: true
+  - type: dropdown
+    id: ai-impact
+    attributes:
+      label: AI impact
+      options:
+        - None
+        - Prompt, grounding, tool, model, feature, rule, or threshold change
+        - AI-adjacent behavior requiring evaluation review
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification and evidence
+      description: Identify unit, integration, contract, accessibility, security/privacy, and AI evaluations required.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: List all implementation, documentation, testing, review, and operational completion conditions.
+    validations:
+      required: true

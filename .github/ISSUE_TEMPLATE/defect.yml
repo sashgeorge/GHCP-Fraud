@@ -1,0 +1,65 @@
+name: Defect
+description: Report a reproducible defect without including sensitive healthcare or case data.
+title: "[Defect] "
+labels: ["type: defect", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Use synthetic or de-identified examples. Never attach protected health information, personally identifiable information, credentials, or case evidence."
+  - type: input
+    id: traceability
+    attributes:
+      label: Use case and acceptance criterion
+      description: Provide UC-### and AC-###, or explain why none applies.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps using safe data
+      placeholder: "1. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and artifact version
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Highest impact
+      options:
+        - Usability or cosmetic
+        - Functional workflow
+        - Accessibility
+        - Availability or data integrity
+        - Security, privacy, or authorization
+        - AI safety, quality, bias, or human-review control
+        - Financial or other consequential action
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Provide safe logs, trace IDs, or screenshots and state what was redacted.
+  - type: textarea
+    id: tests
+    attributes:
+      label: Regression test expectations
+    validations:
+      required: true

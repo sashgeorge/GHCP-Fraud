@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "pwsh -NoProfile -File .github/hooks/session-context.ps1",
+        "timeout": 10
+      }
+    ],
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "pwsh -NoProfile -File .github/hooks/guard-tool-use.ps1",
+        "timeout": 10
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "pwsh -NoProfile -File .github/hooks/validate-customizations.ps1",
+        "timeout": 30
+      }
+    ]
+  }
+}
